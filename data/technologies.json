@@ -1,0 +1,42 @@
+{
+    "languages": {
+        "Python":{
+            "src": "1.bmp",
+            "a": "https://www.python.org/"
+        },
+        "JS":{
+            "src": "2.bmp",
+            "a": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+        },
+        "HTML":{
+            "src": "3.bmp",
+            "a": "https://www.w3schools.com/html/"
+        },
+        "CSS":{
+            "src": "4.bmp",
+            "a": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+    },
+    "libraries": {
+        "PyQT": {
+            "src": "02.bmp",
+            "a": "https://doc.qt.io/qtforpython-6/"
+        },
+        "Pandas": {
+            "src": "04.bmp",
+            "a": "https://pandas.pydata.org/"
+        },
+        "Django": {
+            "src": "03.bmp",
+            "a": "https://www.djangoproject.com/"
+        },
+        "PyTorch": {
+            "src": "05.bmp",
+            "a": "https://pytorch.org/"
+        },
+        "SCSS": {
+            "src": "06.bmp",
+            "a": "https://sass-lang.com/guide"
+        }
+    }
+}

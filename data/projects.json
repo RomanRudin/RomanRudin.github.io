@@ -1,0 +1,38 @@
+{
+    "CV Website":{
+        "name": "CV Website",
+        "img": "cv.png",
+        "p": "Simple SPA project with JS, SASS, HTML usage.",
+        "a": ""
+    },
+    "Electrycity Manager":{
+        "name": "Electrycity Manager",
+        "img": "electrycity.png",
+        "p": "PyQT project for counting how much electrycity you use&lose.",
+        "a": "https://github.com/RomanRudin/ElectricityManager"
+    },
+    "Time Manager":{
+        "name": "Time Manager",
+        "img": "time.png",
+        "p": "Python multithread project that helps people to analyse their schedule, how much time they spent in different programs. In beta testing phase.",
+        "a": "https://github.com/RomanRudin/RomanRudin-ComputerHealth-TimeManagement-ToolPack"
+    },
+    "Bitmakers Website":{
+        "name": "Bitmakers Website",
+        "img": "bitmaker.png",
+        "p": "Unfinished MPA web project for one of my friends.",
+        "a": "https://github.com/RomanRudin/BitmakersWebsite"
+    },
+    "Cell Automata":{
+        "name": "Cell Automata",
+        "img": "cell.png",
+        "p": "PyGame cell puzle game, unfinished.",
+        "a": "https://github.com/RomanRudin/Cell-Automata"
+    },
+    "Lesson Classifier":{
+        "name": "Lesson Classifier",
+        "img": "lesson.png",
+        "p": "PyQT program that helps headteachers to analyse difficulty of students' schedules.",
+        "a": "https://github.com/RomanRudin/LessonClassifier"
+    }
+}

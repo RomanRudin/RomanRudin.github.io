@@ -6,7 +6,7 @@
         "a": ""
     },
     "Electrycity Manager":{
-        "name": "Electrycity Manager",
+        "name": "Electricity Manager",
         "img": "electrycity.png",
         "p": "PyQT project for counting how much electrycity you use&lose.",
         "a": "https://github.com/RomanRudin/ElectricityManager"

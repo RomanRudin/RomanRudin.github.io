@@ -33,10 +33,10 @@ function addTechnologies(){
 function addProjects() {
     let div = innerConstructor('projects');
     for (let project in projects){
-        div.innerHTML += '<div id="' + project + '" class="project-div"></div>';
+        div.innerHTML += '<div id="' + project + '" class="project-card active"></div>';
         let projectDiv = document.getElementById(project)
-        projectDiv.innerHTML += '<a href="' + projects[project]["a"] + '"><img class="project project-img active" src="images/projects/' + projects[project]["img"] +'"></a>';
-        projectDiv.innerHTML += '<h4 class="project small-title">' + project + '</h4>';
+        projectDiv.innerHTML += '<a href="' + projects[project]["a"] + '"><img class="project project-img" src="images/projects/' + projects[project]["img"] +'"></a>';
+        projectDiv.innerHTML += '<h3 class="project small-title">' + project + '</h3>';
         projectDiv.innerHTML += '<p class="project text">' + projects[project]["p"] + '</p>';
     }
 }
@@ -45,7 +45,7 @@ function addProjects() {
 function addContacts(){
     let div = innerConstructor('links')
     for (let link in contacts){
-        div.innerHTML += '<a href="' + contacts[link] + '"><img src="images/contacts/' + link + '" title="' + link + '"></a>&nbsp;'
+        div.innerHTML += '<a href="' + contacts[link] + '"><i class="fab fa-'+ link + ' icon active" title="' + link + '"></i></a>&nbsp;'
     }
 }
 

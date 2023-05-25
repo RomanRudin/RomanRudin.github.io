@@ -5,35 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="https://pro.fontawesome.com/releases/v5.15.2/css/all.css"
+    />
     <link rel="shortcut icon" href="images/other/icon.png" type="image/png">
     <title>CV</title>
 </head>
 <body>
 
     <header>
-        <button id="toggle-theme"><img id="header-img" src="images/other/header.bmp" /></button>
         <nav>
-            <a href="/" class="active"><img src="" alt="Home" /></a>
-            <a href="#aboutme-section" class="active">About</a>
-            <a href="#technologies-section" class="active">Technologies</a>
-            <a href="#projects" class="active">Projects</a>
-            <a href="#links-info" class="active">Links</a>
+            <a href="/" class="home-icon active"><img src="" alt="Home" /></a>
+            <a href="#aboutme-section" class="nav-icon active">About</a>
+            <a href="#technologies-section" class="nav-icon active">Technologies</a>
+            <a href="#projects" class="nav-icon active">Projects</a>
+            <a href="#links-info" class="nav-icon active last-icon">Links</a>
         </nav>
     </header>
-
+    <button id="toggle-theme"><img id="header-img" src="images/other/header.bmp" /></button>
     <main>
         <noscript>Your browser doesn't support JavaScript</noscript>
         <div id="aboutme-section">
-            <h3 class="title">About me:</h3>
+            <h2 class="title">About me:</h2>
         </div>
         <div id="technologies-section">
-            <h3 class="title">Technologies:</h3>
+            <h2 class="title">Technologies:</h2>
         </div> 
         <div id="projects">
-            <h3 class="title">Projects:</h3>
+            <h2 class="title">Projects:</h2>
             <div id="projects-section"></div>
         </div>
-        <div id="links-info" class="title"><h3>Links</h3></div>
+        <div id="links-info" class="title"><h2>Links</h2></div>
         <div id="links-section">
         </div>
     </main>

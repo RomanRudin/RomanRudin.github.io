@@ -18,11 +18,3 @@ toggleThemeBtn.addEventListener('click', themeChanger);
 
 const headerSkipper = document.querySelector('#toggle-theme');
 headerSkipper.addEventListener("keypress", headerSkiping)
-headerSkipper.addEventListener("mouseleave", headerSkiping)
-
-const activeElements = document.querySelectorAll('a')
-activeElements.forEach(element => {
-    element.addEventListener('mouseover', function() {
-        shadowChanging(element)
-    })
-});

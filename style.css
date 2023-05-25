@@ -12,18 +12,18 @@
 :root[data-theme="light"] {
   --bg-color: #edfcf4;
   --text-color: #000000;
-  --primary-color: #90eeb7;
-  --secondary-color: #d7f9e5;
-  --accent-color: #f8ba35; }
+  --primary-color: #b6b904;
+  --secondary-color: #d8fdb4;
+  --accent-color: #5bb904; }
 
 :root[data-theme="blue"] {
   --bg-color: #3d6eae;
   --text-color: #010401;
-  --primary-color: #8e8667;
-  --secondary-color: #ffffff;
-  --accent-color: #3c534e; }
+  --primary-color: #3f3e42;
+  --secondary-color: #0f0f10;
+  --accent-color: #4c4a4f; }
 
-header > nav, #technology-lang, #technology-framework {
+header > nav, #technology-lang, #technology-framework, #links-section {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -31,38 +31,63 @@ header > nav, #technology-lang, #technology-framework {
   align-content: space-around;
   justify-content: space-evenly; }
 
-@keyframes activeAnimation {
-  0% {
-    transform: none; } }
 body {
+  transition: all 1s;
   margin: 0px;
   background-color: var(--bg-color);
   resize: both;
-  font-size: 24px;
+  font-size: 20px;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  color: var(--text-color); }
+  color: var(--text-color);
+  animation: entranceAnim 1s ease 0s 1 normal forwards; }
 
-@keyframes entrance {
+@keyframes entranceAnim {
+  0% {
+    opacity: 0;
+    transform: scale(0.6); }
   100% {
-    opacity: 1; }
-  75% {
-    opacity: 0; } }
+    opacity: 1;
+    transform: scale(1); } }
+@keyframes denyAnim {
+  0%,
+    100% {
+    transform: translateX(0); }
+  10%,
+    30%,
+    50%,
+    70% {
+    transform: translateX(-10px); }
+  20%,
+    40%,
+    60% {
+    transform: translateX(10px); }
+  80% {
+    transform: translateX(8px); }
+  90% {
+    transform: translateX(-8px); } }
+@keyframes shadowAnim {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
+  50% {
+    box-shadow: 40px 0 40px 0px rgba(0, 0, 0, 0.45); }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); } }
 main {
   margin-left: 20%;
-  margin-right: 20%;
-  animation: entranceAnim 2s ease 0.5s 1 normal forwards; }
+  margin-right: 20%; }
 
-.active:hover {
-  cursor: pointer;
-  transform: scale(1.1); }
+.active {
+  transition: all 0.5s; }
+  .active:hover {
+    cursor: pointer;
+    transform: scale(1.1); }
 
-header, header > img, button {
+header, body > img, button {
   padding: 0px;
   margin: 0px;
   cursor: pointer;
   background-color: var(--bg-color);
-  border: var(--bg-color) 0px;
-  animation: entranceAnim 2s ease 0.5s 1 normal forwards; }
+  border: var(--bg-color) 0px; }
 
 header > nav {
   border: var(--primary-color) solid 2px; }
@@ -70,13 +95,23 @@ header > nav {
 header > nav > a, main > div > a {
   text-decoration: none;
   font-weight: 700;
-  color: var(--primary-color); }
+  color: var(--primary-color);
+  text-align: center; }
   header > nav > a:hover, main > div > a:hover {
     color: var(--accent-color); }
 
 #header-img {
   width: 100%;
-  height: 60%; }
+  animation: shadowAnim 2s linear 0s infinite normal forwards; }
+
+.home-icon {
+  flex: 1 1 content; }
+
+.nav-icon {
+  flex-grow: 3; }
+
+.nav-icon:not(.last-icon), .home-icon {
+  border-right: var(--primary-color) dashed 1px; }
 
 .text {
   text-align: justify; }
@@ -85,7 +120,9 @@ header > nav > a, main > div > a {
   text-align: center; }
 
 .small-title {
-  font-family: 'Courier New', Courier, monospace; }
+  font-family: 'Courier New', Courier, monospace;
+  padding-top: 5px;
+  padding-bottom: 5px; }
 
 .aboutme {
   font-family: 'Courier New', Courier, monospace; }
@@ -110,7 +147,8 @@ header > nav > a, main > div > a {
   display: grid;
   grid-template-columns: repeat(2, 6fr); }
 
-.project-div {
+.project-card {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -120,35 +158,19 @@ header > nav > a, main > div > a {
   padding: 2px; }
 
 .project {
-  margin: 2px;
-  padding: 2px;
-  text-align: center; }
+  text-align: center;
+  margin: 0%;
+  padding: 0%; }
 
 .project-img {
-  width: 240px;
-  height: 150px;
-  border-radius: 20%; }
+  object-fit: fill;
+  height: 300px; }
 
-#freelance {
-  display: flex;
-  flex-direction: row; }
+#links-section {
+  flex-wrap: wrap; }
 
-#footer-main {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap; }
-
-.footer-vertical {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center; }
-
-.info {
-  font-family: 'Courier New', Courier, monospace; }
-
-.small-info {
-  font-family: 'Courier New', Courier, monospace; }
+.icon {
+  font-size: 50px; }
 
 ::-webkit-scrollbar {
   width: 0px; }

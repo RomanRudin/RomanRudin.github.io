@@ -3,12 +3,20 @@
     margin-top: 0px;
 }*/
 
+$current-border-alpha: 0.5;
+$current-border-width: 5px;
+$current-shadow-depth: 40px;
+$current-shadow-alpha: 0.1;
+$current-animation-time: 14s;
+
 :root[data-theme="dark"] {
     --bg-color: #010a1e;
     --text-color: #f0f5fe;
     --primary-color: #fbdc98;
     --secondary-color: #000000;
     --accent-color: #f8ba35;
+    --disabled-color: #ff0000;
+    --private-color: #0026ff;
 }
 :root[data-theme="light"] {
     --bg-color: #edfcf4;
@@ -16,6 +24,8 @@
     --primary-color: #b6b904;
     --secondary-color: #d8fdb4;
     --accent-color: #5bb904;
+    --disabled-color: #ff0000;
+    --private-color: #0026ff;
 }
 :root[data-theme="blue"] {
     --bg-color: #3d6eae;
@@ -23,6 +33,8 @@
     --primary-color: #3f3e42;
     --secondary-color: #0f0f10;
     --accent-color: #4c4a4f;
+    --disabled-color: #ff0000;
+    --private-color: #0026ff;
 }
 
 
@@ -69,21 +81,21 @@ body {
     30%,
     50%,
     70% {
-        transform: translateX(-10px);
+        transform: translateX(-5px);
     }
 
     20%,
     40%,
     60% {
-        transform: translateX(10px);
+        transform: translateX(5px);
     }
 
     80% {
-        transform: translateX(8px);
+        transform: translateX(4px);
     }
 
     90% {
-        transform: translateX(-8px);
+        transform: translateX(-4px);
     }
 }
 
@@ -101,15 +113,55 @@ body {
 	}
 }
 
+@keyframes currentAnim {
+    0% {
+        box-shadow: 0 0 $current-shadow-depth $current-shadow-depth rgba(#ff0000, $current-shadow-alpha);
+        border-color: rgba(#ff0000, $current-border-alpha);
+    }
+    14% {
+        box-shadow: 0 0 $current-shadow-depth $current-shadow-depth rgba(#ff8000, $current-shadow-alpha);
+        border-color: rgba(#ff8000, $current-border-alpha);
+    }
+    28% {
+        box-shadow: 0 0 $current-shadow-depth $current-shadow-depth rgba(#ffff00, $current-shadow-alpha);
+        border-color: rgba(#ffff00, $current-border-alpha);
+    }
+    43% {
+        box-shadow: 0 0 $current-shadow-depth $current-shadow-depth rgba(#00ff00, $current-shadow-alpha);
+        border-color: rgba(#00ff00, $current-border-alpha);
+    }
+	57% {
+		box-shadow: 0 0 $current-shadow-depth $current-shadow-depth rgba(#00ffff, $current-shadow-alpha);
+        border-color: rgba(#00ffff, $current-border-alpha);
+	}
+    71% {
+        box-shadow: 0 0 $current-shadow-depth $current-shadow-depth rgba(#0000ff, $current-shadow-alpha);
+        border-color: rgba(#0000ff, $current-border-alpha);
+    }
+    86% {
+        box-shadow: 0 0 $current-shadow-depth $current-shadow-depth rgba(#60c, $current-shadow-alpha);
+        border-color: rgba(#60c, $current-border-alpha);
+    }
+    100% {
+        box-shadow: 0 0 $current-shadow-depth $current-shadow-depth rgba(#ff0000, $current-shadow-alpha);
+        border-color: rgba(#ff0000, $current-border-alpha);
+    }
+}
+
 main{
     margin-left: 20%;
     margin-right: 20%;
 }
 
+.active:not(.project-card):hover {
+    cursor: pointer;
+}
+.project-card > .active:hover {
+    cursor:none;
+}
 .active {
     transition: all 0.5s;
     &:hover{
-        cursor: pointer;
         transform: scale(1.1);
     }
 }
@@ -204,7 +256,7 @@ header > nav > a, main > div > a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: var(--accent-color) solid 1px;
+    border: var(--accent-color) solid 2px;
     border-radius: 10%;
     margin: 20px;
     padding: 2px;
@@ -226,6 +278,33 @@ header > nav > a, main > div > a {
 
 .icon{
     font-size: 50px;
+}
+
+
+.disabled {
+    border: var(--disabled-color) solid 4px;
+    &:hover{
+        animation: denyAnim 0.5s ease 0s 1 normal forwards;
+    }
+}
+.private {
+    border: var(--disabled-color) dashed 4px;
+    &:hover{
+        animation: denyAnim 0.2s ease 0s 1 normal forwards;
+    }
+}
+
+
+#current-section {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid $current-border-width;
+    border-radius: 10%;
+    margin: 0;
+    padding: 0;
+    animation: currentAnim $current-animation-time linear 0s infinite normal forwards;
 }
 
 

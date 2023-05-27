@@ -1,5 +1,6 @@
 import aboutme from './data/aboutme.json' assert { type: 'json' };
 import projects from './data/projects.json' assert { type: 'json' };
+import current from './data/current.json' assert { type: 'json' };
 import technologies from './data/technologies.json'  assert { type: 'json' };
 import contacts from './data/contacts.json'  assert { type: 'json' };
 
@@ -33,12 +34,20 @@ function addTechnologies(){
 function addProjects() {
     let div = innerConstructor('projects');
     for (let project in projects){
-        div.innerHTML += '<div id="' + project + '" class="project-card active"></div>';
+        let enabled = projects[project]["enabled"] === "True" ? "": projects[project]["enabled"] === "False" ? " disabled": " private";
+        div.innerHTML += '<div id="' + project + '" class="project-card active' + enabled + '"></div>';
         let projectDiv = document.getElementById(project)
         projectDiv.innerHTML += '<a href="' + projects[project]["a"] + '"><img class="project project-img" src="images/projects/' + projects[project]["img"] +'"></a>';
         projectDiv.innerHTML += '<h3 class="project small-title">' + project + '</h3>';
         projectDiv.innerHTML += '<p class="project text">' + projects[project]["p"] + '</p>';
     }
+}
+
+function addCurrent() {
+    let div = innerConstructor('current')
+    div.innerHTML += '<a href="' + current["a"] + '"><img class="project project-img" src="images/projects/' + current["img"] +'"></a>';
+    div.innerHTML += '<h3 class="project small-title">' + current["name"] + '</h3>';
+    div.innerHTML += '<p class="project text">' + current["p"] + '</p>';
 }
 
 
@@ -53,6 +62,7 @@ function addContacts(){
 function start(){
     addAboutme();
     addTechnologies();
+    addCurrent();
     addProjects();
     addContacts();
 }

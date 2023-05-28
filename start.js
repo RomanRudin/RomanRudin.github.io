@@ -21,12 +21,12 @@ function addTechnologies(){
     div.innerHTML += '<div id="technology-lang"></div>';
     let divTechnologyLang = document.getElementById("technology-lang")
     for (let tech in technologies["languages"]){
-        divTechnologyLang.innerHTML += '<a href="' + technologies["languages"][tech]["a"] + '" class="active"><img class="technology active"  src="images/technologies/languages/' + technologies["languages"][tech]["src"] + '"></a>'
+        divTechnologyLang.innerHTML += '<a href="' + technologies["languages"][tech]["a"] + '" class="active"><img class="technology-card active"  src="images/technologies/languages/' + technologies["languages"][tech]["src"] + '"></a>'
     }
     div.innerHTML += '<div id="technology-framework"></div>';
     let divTechnologyFramework = document.getElementById("technology-framework")
     for (let tech in technologies["libraries"]){
-        divTechnologyFramework.innerHTML += '<a href="' + technologies["libraries"][tech]["a"] + '" class="active"><img class="technology active"  src="images/technologies/frameworks/' + technologies["libraries"][tech]["src"] + '"></a>'
+        divTechnologyFramework.innerHTML += '<a href="' + technologies["libraries"][tech]["a"] + '" class="active"><img class="technology-card active"  src="images/technologies/frameworks/' + technologies["libraries"][tech]["src"] + '"></a>'
     }
 }
 
@@ -45,9 +45,9 @@ function addProjects() {
 
 function addCurrent() {
     let div = innerConstructor('current')
-    div.innerHTML += '<a href="' + current["a"] + '"><img class="project project-img" src="images/projects/' + current["img"] +'"></a>';
-    div.innerHTML += '<h3 class="project small-title">' + current["name"] + '</h3>';
-    div.innerHTML += '<p class="project text">' + current["p"] + '</p>';
+    div.innerHTML += '<a href="' + current["a"] + '"><img class="project current-img" src="images/projects/' + current["img"] +'"></a>';
+    div.innerHTML += '<h3 class="current small-title current">' + current["name"] + '</h3>';
+    div.innerHTML += '<p class="current text current">' + current["p"] + '</p>';
 }
 
 

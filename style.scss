@@ -1,22 +1,22 @@
-/* *{
-    padding-top: 0px;
-    margin-top: 0px;
-}*/
-
+//Variables for "current project" block
 $current-border-alpha: 0.5;
 $current-border-width: 5px;
 $current-shadow-depth: 40px;
 $current-shadow-alpha: 0.1;
 $current-animation-time: 14s;
+$disabled-color: #ff0000;
+$private-color: #0026ff;
 
+
+
+
+//Variables in :root with colors for different themes
 :root[data-theme="dark"] {
     --bg-color: #010a1e;
     --text-color: #f0f5fe;
     --primary-color: #fbdc98;
     --secondary-color: #000000;
     --accent-color: #f8ba35;
-    --disabled-color: #ff0000;
-    --private-color: #0026ff;
 }
 :root[data-theme="light"] {
     --bg-color: #edfcf4;
@@ -24,8 +24,6 @@ $current-animation-time: 14s;
     --primary-color: #b6b904;
     --secondary-color: #d8fdb4;
     --accent-color: #5bb904;
-    --disabled-color: #ff0000;
-    --private-color: #0026ff;
 }
 :root[data-theme="blue"] {
     --bg-color: #3d6eae;
@@ -33,11 +31,12 @@ $current-animation-time: 14s;
     --primary-color: #3f3e42;
     --secondary-color: #0f0f10;
     --accent-color: #4c4a4f;
-    --disabled-color: #ff0000;
-    --private-color: #0026ff;
 }
 
 
+
+
+//Row-flexing display template
 %display-flex {
     display: flex;
     flex-direction: row;
@@ -45,8 +44,64 @@ $current-animation-time: 14s;
     align-items: center;
     align-content: space-around;
     justify-content: space-evenly;
-  }
+}
 
+
+
+
+// Similar in the whole document special styles
+.text {
+    text-align: justify;
+}
+.title {
+    text-align: center;
+}
+.small-title {
+    font-family: 'Courier New', Courier, monospace;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+
+
+//Nav bar styles
+header, body > img, button { //idk what is that. I think, it's this large image on entrance + theme changing button style...
+    padding: 0px;
+    margin: 0px;
+    cursor: pointer;
+    background-color: var(--bg-color);
+    border: var(--bg-color) 0px;
+}
+header > nav{ //Whole nav bar
+    @extend %display-flex;
+    border: var(--primary-color) solid 2px;
+}
+header > nav > a, main > div > a { //Links and nav bar styles
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    &:hover{
+        color: var(--accent-color);
+    }
+}
+
+.home-icon { //"Home" icon in nav
+    flex: 1 1 content;
+}
+.nav-icon{ // all nav links
+    flex-grow: 3;
+}
+.nav-icon:not(.last-icon), .home-icon { //Links except last dashed border style
+    border-right: var(--primary-color) dashed 1px;
+}
+
+
+
+
+
+//Huge parts of document
 body {
     transition: all 1s;
     margin: 0px;
@@ -56,10 +111,17 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;   
     color: var(--text-color);
     animation: entranceAnim 1s ease 0s 1 normal forwards;
-
+}
+main{
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
-@keyframes entranceAnim {
+
+
+
+//Animations
+@keyframes entranceAnim { //Animation for whole body while entering page
 	0% {
 		opacity: 0;
 		transform: scale(0.6);
@@ -71,7 +133,7 @@ body {
 	}
 }
 
-@keyframes denyAnim {
+@keyframes denyAnim { //Animation for .disabled projects while hovering cursor above them
     0%,
     100% {
         transform: translateX(0);
@@ -99,7 +161,7 @@ body {
     }
 }
 
-@keyframes shadowAnim {
+@keyframes shadowAnim { //Animation for "living shadow" beneath the image, for some unknown reason named "header-img" while being on the top of the main
 	0% {
 		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
 	}
@@ -113,7 +175,7 @@ body {
 	}
 }
 
-@keyframes currentAnim {
+@keyframes currentAnim { //Animation for "current project" block (glowing + border and glowing colors differenciating)
     0% {
         box-shadow: 0 0 $current-shadow-depth $current-shadow-depth rgba(#ff0000, $current-shadow-alpha);
         border-color: rgba(#ff0000, $current-border-alpha);
@@ -148,96 +210,31 @@ body {
     }
 }
 
-main{
-    margin-left: 20%;
-    margin-right: 20%;
-}
 
-.active:not(.project-card):hover {
-    cursor: pointer;
-}
-.project-card > .active:hover {
-    cursor:none;
-}
-.active {
-    transition: all 0.5s;
-    &:hover{
-        transform: scale(1.1);
-    }
-}
 
-header, body > img, button {
-    padding: 0px;
-    margin: 0px;
-    cursor: pointer;
-    background-color: var(--bg-color);
-    border: var(--bg-color) 0px;
-}
 
-header > nav{
-    @extend %display-flex;
-    border: var(--primary-color) solid 2px;
-}
-
-header > nav > a, main > div > a {
-    text-decoration: none;
-    font-weight: 700;
-    color: var(--primary-color);
-    text-align: center;
-    &:hover{
-        color: var(--accent-color);
-    }
-}
-
-#header-img {
+//Main block styles
+//Image on entrance + theme changing button
+#header-img { //Large image on entrance
     width: 100%;
     animation: shadowAnim 2s linear 0s infinite normal forwards;
 }
 
-.home-icon {
-    flex: 1 1 content;
-}
-.nav-icon{
-    flex-grow: 3;
-}
-.nav-icon:not(.last-icon), .home-icon {
-    border-right: var(--primary-color) dashed 1px;
-}
 
-
-.text {
-    text-align: justify;
-}
-.title {
-    text-align: center;
-}
-.small-title {
-    font-family: 'Courier New', Courier, monospace;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-
+//"About me" section
 .aboutme {
     font-family: 'Courier New', Courier, monospace;
 }
 
 
-#technologies {
+//"Technologies" secton
+#technologies { //Main div
     justify-content: center;
 }
-#technology-lang {
-    /*display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;*/
-    // display: grid;
-    // grid-template-columns: repeat(3, 5fr);
+#technology-lang, #technology-framework{ //Divs for languages and frameworks (differenciated, 'cause I want them to be on different level)
     @extend %display-flex;
 }
-#technology-framework {
-    @extend %display-flex;
-}
-.technology {
+.technology-card { //Cards-links to the technologies I am expirienced in
     margin: 10px;
     width: 100px;
     height: 100px;
@@ -246,56 +243,9 @@ header > nav > a, main > div > a {
 }
 
 
-#projects-section {
-    width: fit-content;
-    display: grid;
-    grid-template-columns: repeat(2, 6fr);
-}
-.project-card {
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: var(--accent-color) solid 2px;
-    border-radius: 10%;
-    margin: 20px;
-    padding: 2px;
-}
-.project {
-    text-align: center;
-    margin: 0%;
-    padding: 0%;
-}
-.project-img {
-    object-fit: fill;
-    height: 300px;  
-}
 
-#links-section {
-    @extend %display-flex;
-    flex-wrap: wrap;
-}
-
-.icon{
-    font-size: 50px;
-}
-
-
-.disabled {
-    border: var(--disabled-color) solid 4px;
-    &:hover{
-        animation: denyAnim 0.5s ease 0s 1 normal forwards;
-    }
-}
-.private {
-    border: var(--disabled-color) dashed 4px;
-    &:hover{
-        animation: denyAnim 0.2s ease 0s 1 normal forwards;
-    }
-}
-
-
-#current-section {
+//"Current project" section
+#current-section { //Main div
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -307,7 +257,86 @@ header > nav > a, main > div > a {
     animation: currentAnim $current-animation-time linear 0s infinite normal forwards;
 }
 
+.current-img { //image-link
+    height: 600px;
+}
+.currrent { // Card with project
+    margin: 10px;
+    padding: 10px;
+}
 
+
+
+//"Projects" section
+#projects-section { //Main div
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(2, 6fr);
+}
+.project-card { //Cards-links to the projects I'va done
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10%;
+    margin: 20px;
+    padding: 2px;
+}
+.project-card:not(.disabled) { //Cards-links to the projects I'va done
+    border: var(--accent-color) solid 2px;
+}
+.project { //Similar to every card and it's parts style
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.project-img { //Images-links of the projec cards
+    object-fit: fill;
+    height: 300px;  
+}
+
+
+//Links section
+#links-section { //Main div
+    @extend %display-flex;
+    flex-wrap: wrap;
+}
+.icon{ //Icons-links
+    font-size: 50px;
+}
+
+
+
+// Special types of active cards and etc
+.active { //Normal active projects
+    transition: all 0.5s;
+    &:hover{
+        transform: scale(1.1);
+    }
+}
+.disabled {  //"Still in work" or "don't wanna show u" projectsz
+    border: $disabled-color solid 4px;
+    &:hover{
+        animation: denyAnim 0.5s ease 0s 1 normal forwards;
+    }
+}
+.private {//Projects not for pudlic usage
+    border: $private-color dashed 4px;
+    &:hover{
+        animation: denyAnim 0.2s ease 0s 1 normal forwards;
+    }
+}
+
+.active:not(.project-card):hover { //Navigation bar cursor changing
+    cursor: pointer;
+}
+.project-card > .active:hover { //Project cards' cursor changing
+    cursor:none;
+}
+
+
+
+//Extra things
 ::-webkit-scrollbar {
     width: 0px;
 }

@@ -2,7 +2,7 @@
     "CV Website":{
         "img": "cv.png",
         "p": "Simple SPA project with JS, SASS, HTML usage.",
-        "a": "",
+        "a": "https://github.com/RomanRudin/RomanRudin.github.io",
         "enabled": "True"
     },
     "Electrycity Manager":{

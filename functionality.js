@@ -1,3 +1,5 @@
+import projects from './data/projects.json' assert { type: 'json' };
+
 function themeChanger(){
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'blue' : currentTheme === 'blue' ? 'light' : 'dark';
@@ -5,8 +7,8 @@ function themeChanger(){
 }
 
 function headerSkiping(){
-    let img = document.querySelector("#header-img")
-    scrollTo({left:0, top:+(img.offsetHeight * 0.9), behavior: "smooth"})
+    let img = document.querySelector("#header-img");
+    scrollTo({left:0, top:+(img.offsetHeight * 0.9), behavior: "smooth"});
 }
 
 function shadowChanging(element) {
@@ -17,4 +19,9 @@ const toggleThemeBtn = document.querySelector('#toggle-theme');
 toggleThemeBtn.addEventListener('click', themeChanger);
 
 const headerSkipper = document.querySelector('#toggle-theme');
-headerSkipper.addEventListener("keypress", headerSkiping)
+headerSkipper.addEventListener("keypress", headerSkiping);
+
+for (let project in projects){
+    let card = document.getElementById(project);
+    
+}

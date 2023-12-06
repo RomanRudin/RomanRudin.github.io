@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
 :root[data-theme="dark"] {
   --bg-color: #010a1e;
   --text-color: #f0f5fe;
@@ -176,6 +181,9 @@ main {
   grid-template-columns: repeat(2, 6fr); }
 
 .project-card {
+  position: relative;
+  transition: all 0.5s;
+  transform-style: preserve-3d;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -196,26 +204,26 @@ main {
   object-fit: fill;
   height: 300px; }
 
+.project-card-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(1px); }
+
+.project-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotateY(180deg); }
+
+.text-decorator {
+  background-color: aliceblue; }
+
 #links-section {
   flex-wrap: wrap; }
 
 .icon {
   font-size: 50px; }
-
-.active {
-  transition: all 0.5s; }
-  .active:hover {
-    transform: scale(1.1); }
-
-.disabled {
-  border: #ff0000 solid 4px; }
-  .disabled:hover {
-    animation: denyAnim 0.5s ease 0s 1 normal forwards; }
-
-.private {
-  border: #0026ff dashed 4px; }
-  .private:hover {
-    animation: denyAnim 0.2s ease 0s 1 normal forwards; }
 
 .active:not(.project-card):hover {
   cursor: pointer; }

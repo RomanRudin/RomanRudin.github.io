@@ -23,5 +23,13 @@ headerSkipper.addEventListener("keypress", headerSkiping);
 
 for (let project in projects){
     let card = document.getElementById(project);
-    
+    let front = document.getElementById(project + "-front");
+    let back = document.getElementById(project + "-back");
+
+    front.addEventListener("mouseover", ()=>{
+        card.style.transform = "rotateY(180deg)"
+    })
+    back.addEventListener("mouseout", ()=>{
+        card.style.transform = "rotateY(0deg)"
+    })
 }
